@@ -11,12 +11,12 @@ import java.util.Scanner;
 public class jakzyc {
     static final String FILE_NAME = "tasks.csv";
     static String[][] tasks;
-    static final String stepI = null;
+
     static final String[] list = {"add", "remove", "list", "exit"};
 
     public static void main(String[] args) {
         tasks = dataFromFile(FILE_NAME);
-
+        String stepI = null;
         int i = 0; // pierwszy etap
         System.out.println(ConsoleColors.BLUE + "Please select an option"); //nagłówek
         for (i = 0; i < list.length; i++) {
@@ -58,7 +58,7 @@ public class jakzyc {
                 case "remove":
                     scanner.nextLine();
                     break;
-                case "list":
+                case "list": //jak wrzucić listę unikając nullpoint exeption?????????????
                     scanner.nextLine();
                     System.out.println(Arrays.toString(list));
                     break;
@@ -72,17 +72,16 @@ public class jakzyc {
     }
         public static void adding() { // dodawanie taska
             Scanner scanner = new Scanner(System.in);
-                System.out.println("Please add task description");
-                String description = scanner.nextLine();
-                System.out.println("Please add task due date");
-                String dueDate = scanner.nextLine();
-                System.out.println("Is your task important: true/false");
-                String isImportant = scanner.nextLine();
-            Arrays.copyOf(tasks, tasks.length + 1);
-            tasks[tasks.length-1] = new String[3];
-            tasks[tasks.length-1][0] = description;
-            tasks[tasks.length-1][1] = dueDate;
-            tasks[tasks.length-1][2] = isImportant;
-
-        }
+            System.out.println("Please add task description");
+            String description = scanner.nextLine();
+            System.out.println("Please add task due date");
+            String dueDate = scanner.nextLine();
+            System.out.println("Is your task important: true/false");
+            String isImportant = scanner.nextLine();
+            /*tasks = Arrays.copyOf(tasks, tasks.length + 1);       nie dodaje się -> jest nullpointer exception
+            tasks[tasks.length - 1] = new String[3];
+            tasks[tasks.length - 1][0] = description;
+            tasks[tasks.length - 1][1] = dueDate;
+            tasks[tasks.length - 1][2] = isImportant;
+        */}
         }
