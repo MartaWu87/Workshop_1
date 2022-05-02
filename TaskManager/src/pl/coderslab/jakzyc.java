@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class jakzyc {
     static final String FILE_NAME = "tasks.csv";
     static String[][] tasks;
-
+    static String[][] split;
     static final String[] list = {"add", "remove", "list", "exit"};
 
     public static void main(String[] args) {
@@ -37,6 +37,7 @@ public class jakzyc {
                 String[] split = strings.get(i).split(" , ");
                 for (int j = 0; j < split.length; j++) {
                     dataFromFile[i][j] = split[j];
+                    //System.out.println(Arrays.toString(split));
                 }
             }
         } catch (IOException e) {
@@ -59,8 +60,7 @@ public class jakzyc {
                     scanner.nextLine();
                     break;
                 case "list": //jak wrzucić listę unikając nullpoint exeption?????????????
-                    scanner.nextLine();
-                    System.out.println(Arrays.toString(list));
+                    //System.out.println(Arrays.toString(split));
                     break;
                 case "exit":
                     scanner.nextLine();
